@@ -302,61 +302,65 @@ export function RadarControl() {
 
   return (
     <ModuleShell module={MODULE} questionNum={qIdx + 1} total={ROUNDS} timerPct={pct} timerRemaining={remaining}>
-      <AnimatePresence mode="wait">
-        <motion.div key={qIdx} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.2 }}
-          className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-4">
 
-          {/* Radar canvas */}
-          <div className="flex flex-col items-center gap-2 w-full">
-            <div className="flex items-center gap-3">
-              <div className="font-mono text-xs text-[#3a5068] tracking-widest">RADAR SCOPE</div>
-              <div className="font-mono text-[10px] text-[#3a5068] border border-[#0e2040] rounded px-1.5 py-0.5">
-                {acCount} AIRCRAFT
-              </div>
+        {/* Radar canvas — kept outside AnimatePresence so the ref is always mounted */}
+        <div className="flex flex-col items-center gap-2 w-full">
+          <div className="flex items-center gap-3">
+            <div className="font-mono text-xs text-[#3a5068] tracking-widest">RADAR SCOPE</div>
+            <div className="font-mono text-[10px] text-[#3a5068] border border-[#0e2040] rounded px-1.5 py-0.5">
+              {acCount} AIRCRAFT
             </div>
-            <canvas ref={canvasRef} width={CS} height={CS}
-              className="rounded-lg border border-[#0e2040] w-full"
-              style={{ maxWidth: CS, display: 'block' }} />
           </div>
+          <canvas ref={canvasRef} width={CS} height={CS}
+            className="rounded-lg border border-[#0e2040] w-full"
+            style={{ maxWidth: CS, display: 'block' }} />
+        </div>
 
-          {/* Instructions (amber traffic pair label) */}
-          <div className="font-mono text-xs text-center text-[#ffb800]">
-            Select the instruction to resolve the conflict
-          </div>
+        {/* Instruction buttons animate per question */}
+        <AnimatePresence mode="wait">
+          <motion.div key={qIdx} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.2 }}
+            className="flex flex-col items-center gap-4 w-full">
 
-          {/* 4 instruction buttons */}
-          <div className="flex flex-col gap-2 w-full">
-            {q.instructions.map((instr, i) => {
-              const isSelected = selected === i
-              const isCorrect  = i === q.correctIdx
-              let border = 'border-[#0e2040]'
-              let text   = 'text-[#c8dff0]'
-              let bg     = ''
-              if (selected !== null) {
-                if (isCorrect)           { border = 'border-[#00ff9f]'; text = 'text-[#00ff9f]'; bg = 'bg-[#001a0f]' }
-                else if (isSelected)     { border = 'border-[#ff3b5c]'; text = 'text-[#ff3b5c]'; bg = 'bg-[#1a0008]' }
-              }
-              return (
-                <motion.button key={i}
-                  whileHover={selected === null ? { scale: 1.01 } : {}}
-                  whileTap={selected === null ? { scale: 0.99 } : {}}
-                  onClick={() => handleSelect(i)}
-                  disabled={selected !== null}
-                  className={`w-full px-4 py-3 rounded border ${border} ${text} ${bg} font-mono text-sm text-left flex items-center gap-3 transition-colors disabled:cursor-default`}>
-                  <span className="text-[#3a5068] shrink-0 w-4">{i + 1}.</span>
-                  <span>{instr}</span>
-                  {selected !== null && isCorrect  && <span className="ml-auto">✓</span>}
-                  {selected !== null && isSelected && !isCorrect && <span className="ml-auto">✗</span>}
-                </motion.button>
-              )
-            })}
-          </div>
+            {/* Instructions (amber traffic pair label) */}
+            <div className="font-mono text-xs text-center text-[#ffb800]">
+              Select the instruction to resolve the conflict
+            </div>
 
-          <FeedbackBanner correct={feedback}
-            explanation={feedback === false ? q.explanation : ''} />
-        </motion.div>
-      </AnimatePresence>
+            {/* 4 instruction buttons */}
+            <div className="flex flex-col gap-2 w-full">
+              {q.instructions.map((instr, i) => {
+                const isSelected = selected === i
+                const isCorrect  = i === q.correctIdx
+                let border = 'border-[#0e2040]'
+                let text   = 'text-[#c8dff0]'
+                let bg     = ''
+                if (selected !== null) {
+                  if (isCorrect)           { border = 'border-[#00ff9f]'; text = 'text-[#00ff9f]'; bg = 'bg-[#001a0f]' }
+                  else if (isSelected)     { border = 'border-[#ff3b5c]'; text = 'text-[#ff3b5c]'; bg = 'bg-[#1a0008]' }
+                }
+                return (
+                  <motion.button key={i}
+                    whileHover={selected === null ? { scale: 1.01 } : {}}
+                    whileTap={selected === null ? { scale: 0.99 } : {}}
+                    onClick={() => handleSelect(i)}
+                    disabled={selected !== null}
+                    className={`w-full px-4 py-3 rounded border ${border} ${text} ${bg} font-mono text-sm text-left flex items-center gap-3 transition-colors disabled:cursor-default`}>
+                    <span className="text-[#3a5068] shrink-0 w-4">{i + 1}.</span>
+                    <span>{instr}</span>
+                    {selected !== null && isCorrect  && <span className="ml-auto">✓</span>}
+                    {selected !== null && isSelected && !isCorrect && <span className="ml-auto">✗</span>}
+                  </motion.button>
+                )
+              })}
+            </div>
+
+            <FeedbackBanner correct={feedback}
+              explanation={feedback === false ? q.explanation : ''} />
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </ModuleShell>
   )
 }

@@ -285,72 +285,73 @@ export function SpotTheSide() {
       timerPct={pct}
       timerRemaining={remaining}
     >
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={qIdx}
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.97 }}
-          transition={{ duration: 0.18 }}
-          className="flex flex-col items-center gap-6"
+      <div className="flex flex-col items-center gap-6">
+
+        {/* Question prompt */}
+        <div className="text-center space-y-1">
+          <div className="font-mono text-xs text-[#3a5068] tracking-widest">IDENTIFY AIRCRAFT SIDE</div>
+          <p className="font-ui text-sm text-[#c8dff0]">
+            The wing with <span className="text-[#ffb800] font-semibold">2 engines</span> is the aircraft's:
+          </p>
+        </div>
+
+        {/* Canvas — outside AnimatePresence so the ref is always mounted */}
+        <div
+          className="rounded-lg overflow-hidden border border-[#0e2040]"
+          style={{ width: SIZE, height: SIZE }}
         >
-          {/* Question prompt */}
-          <div className="text-center space-y-1">
-            <div className="font-mono text-xs text-[#3a5068] tracking-widest">IDENTIFY AIRCRAFT SIDE</div>
-            <p className="font-ui text-sm text-[#c8dff0]">
-              The wing with <span className="text-[#ffb800] font-semibold">2 engines</span> is the aircraft's:
-            </p>
-          </div>
+          <canvas ref={canvasRef} width={SIZE} height={SIZE} />
+        </div>
 
-          {/* Canvas */}
-          <div
-            className="rounded-lg overflow-hidden border border-[#0e2040]"
-            style={{ width: SIZE, height: SIZE }}
+        {/* Buttons and feedback animate per question */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={qIdx}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.18 }}
+            className="flex flex-col items-center gap-6 w-full"
           >
-            <canvas ref={canvasRef} width={SIZE} height={SIZE} />
-          </div>
-
-          {/* Buttons */}
-          <div className="flex gap-4 w-full max-w-xs">
-            {(['left', 'right'] as const).map((side) => {
-              const isAnswer = side === q.twoEngineSide
-              let border = 'border-[#0e2040]'
-              let text = 'text-[#c8dff0]'
-              let bg = ''
-              if (answerState !== 'idle') {
-                if (isAnswer)           { border = 'border-[#00ff9f]'; text = 'text-[#00ff9f]'; bg = 'bg-[#001a0f]' }
-                else if (answerState === 'wrong' && !isAnswer && side !== q.twoEngineSide) {
-                  // the button the user might have pressed incorrectly — handled by answerState
+            {/* Buttons */}
+            <div className="flex gap-4 w-full max-w-xs">
+              {(['left', 'right'] as const).map((side) => {
+                const isAnswer = side === q.twoEngineSide
+                let border = 'border-[#0e2040]'
+                let text = 'text-[#c8dff0]'
+                let bg = ''
+                if (answerState !== 'idle') {
+                  if (isAnswer) { border = 'border-[#00ff9f]'; text = 'text-[#00ff9f]'; bg = 'bg-[#001a0f]' }
                 }
-              }
 
-              return (
-                <motion.button
-                  key={side}
-                  whileHover={answerState === 'idle' ? { scale: 1.04 } : {}}
-                  whileTap={answerState === 'idle' ? { scale: 0.97 } : {}}
-                  onClick={() => handleSelect(side)}
-                  disabled={answerState !== 'idle'}
-                  className={`flex-1 py-4 rounded border ${border} ${text} ${bg} font-mono font-bold text-sm tracking-widest transition-colors disabled:cursor-default`}
-                >
-                  <div>{side.toUpperCase()}</div>
-                  <div className="text-xs font-normal opacity-50 mt-0.5">
-                    {side === 'left' ? '← key 1' : 'key 2 →'}
-                  </div>
-                </motion.button>
-              )
-            })}
-          </div>
+                return (
+                  <motion.button
+                    key={side}
+                    whileHover={answerState === 'idle' ? { scale: 1.04 } : {}}
+                    whileTap={answerState === 'idle' ? { scale: 0.97 } : {}}
+                    onClick={() => handleSelect(side)}
+                    disabled={answerState !== 'idle'}
+                    className={`flex-1 py-4 rounded border ${border} ${text} ${bg} font-mono font-bold text-sm tracking-widest transition-colors disabled:cursor-default`}
+                  >
+                    <div>{side.toUpperCase()}</div>
+                    <div className="text-xs font-normal opacity-50 mt-0.5">
+                      {side === 'left' ? '← key 1' : 'key 2 →'}
+                    </div>
+                  </motion.button>
+                )
+              })}
+            </div>
 
-          {/* Feedback */}
-          <div className="w-full">
-            <FeedbackBanner
-              correct={feedback}
-              explanation={feedback === false ? explanation : ''}
-            />
-          </div>
-        </motion.div>
-      </AnimatePresence>
+            {/* Feedback */}
+            <div className="w-full">
+              <FeedbackBanner
+                correct={feedback}
+                explanation={feedback === false ? explanation : ''}
+              />
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </ModuleShell>
   )
 }

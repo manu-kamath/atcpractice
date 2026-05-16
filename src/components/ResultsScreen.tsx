@@ -14,7 +14,7 @@ interface Props {
 export function ResultsScreen({ module, score, total, avgTimeMs, personalBest, onRetry }: Props) {
   const navigate = useNavigate()
   const pct = Math.round((score / total) * 100)
-  const isNewBest = pct >= personalBest && score > 0
+  const isNewBest = pct > personalBest && score > 0
   const avgSec = (avgTimeMs / 1000).toFixed(1)
 
   const grade =

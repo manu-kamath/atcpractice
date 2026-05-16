@@ -205,6 +205,8 @@ export function MultiAttention() {
   const shapeAnswerRef = useRef<Shape | null>(null)
   const seqAnswerRef = useRef<number | null>(null)
   const blinkStateRef = useRef<BlinkState>('waiting')
+  const blinkFlashTimeRef = useRef(0)
+  const blinkReactTimesRef = useRef<number[]>([])
   const roundEndedRef = useRef(false)
 
   const endRound = useCallback(() => {
@@ -261,6 +263,7 @@ export function MultiAttention() {
       const cur = blinkStateRef.current
       if (cur === 'waiting' && el >= s.blinkAt) {
         blinkStateRef.current = 'flashing'
+        blinkFlashTimeRef.current = Date.now()
         setBlinkState('flashing')
       } else if (cur === 'flashing' && el >= s.blinkAt + BLINK_DURATION_MS) {
         blinkStateRef.current = 'missed'
@@ -293,6 +296,7 @@ export function MultiAttention() {
   const handleBlink = () => {
     if (blinkStateRef.current !== 'flashing') return
     blinkStateRef.current = 'hit'
+    blinkReactTimesRef.current.push(Date.now() - blinkFlashTimeRef.current)
     setBlinkState('hit')
   }
 
@@ -307,11 +311,15 @@ export function MultiAttention() {
           (r.blink ? 1 : 0),
         0
       )
+      const reactTimes = blinkReactTimesRef.current
+      const avgTimeMs = reactTimes.length > 0
+        ? reactTimes.reduce((a, b) => a + b, 0) / reactTimes.length
+        : ROUND_MS
       recordResult({
         moduleId: 10,
         score: total,
         total: ROUNDS * 4,
-        avgTimeMs: ROUND_MS,
+        avgTimeMs,
         completedAt: Date.now(),
       })
       setResultRecorded(true)
@@ -341,6 +349,10 @@ export function MultiAttention() {
         (r.blink ? 1 : 0),
       0
     )
+    const reactTimes = blinkReactTimesRef.current
+    const avgBlinkMs = reactTimes.length > 0
+      ? reactTimes.reduce((a, b) => a + b, 0) / reactTimes.length
+      : ROUND_MS
     const modScore = getModuleScore(10)
     return (
       <div className="min-h-screen bg-[#050d1a] flex flex-col items-center justify-center p-6">
@@ -348,11 +360,12 @@ export function MultiAttention() {
           module={MODULE}
           score={totalCorrect}
           total={ROUNDS * 4}
-          avgTimeMs={ROUND_MS}
+          avgTimeMs={avgBlinkMs}
           personalBest={modScore?.highScore ?? 0}
           onRetry={() => {
             setRoundScores([])
             setResultRecorded(false)
+            blinkReactTimesRef.current = []
             startRound(0)
           }}
         />
