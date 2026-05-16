@@ -16,6 +16,7 @@ import { SpotTheSide } from './modules/SpotTheSide'
 import { Vigilance } from './modules/Vigilance'
 import { Dart } from './modules/Dart'
 import { MultiControl } from './modules/MultiControl'
+import { RadarControl } from './modules/RadarControl'
 import './index.css'
 
 export default function App() {
@@ -40,7 +41,7 @@ export default function App() {
         <Route path="/modules/vigilance" element={<Vigilance />} />
         <Route path="/modules/dart" element={<Dart />} />
         <Route path="/modules/multi-control" element={<MultiControl />} />
-        <Route path="/modules/radar-control" element={<Placeholder moduleId={16} />} />
+        <Route path="/modules/radar-control" element={<RadarControl />} />
         <Route path="/modules/strip-display" element={<Placeholder moduleId={17} />} />
       </Routes>
     </BrowserRouter>
