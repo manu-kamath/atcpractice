@@ -13,6 +13,7 @@ import { MemorizePictograms } from './modules/MemorizePictograms'
 import { MultiAttention } from './modules/MultiAttention'
 import { PlanningAbility } from './modules/PlanningAbility'
 import { SpotTheSide } from './modules/SpotTheSide'
+import { Vigilance } from './modules/Vigilance'
 import './index.css'
 
 export default function App() {
@@ -34,7 +35,7 @@ export default function App() {
         <Route path="/modules/multi-attention" element={<MultiAttention />} />
         <Route path="/modules/planning-ability" element={<PlanningAbility />} />
         <Route path="/modules/spot-the-side" element={<SpotTheSide />} />
-        <Route path="/modules/vigilance" element={<Placeholder moduleId={13} />} />
+        <Route path="/modules/vigilance" element={<Vigilance />} />
         <Route path="/modules/dart" element={<Placeholder moduleId={14} />} />
         <Route path="/modules/multi-control" element={<Placeholder moduleId={15} />} />
         <Route path="/modules/radar-control" element={<Placeholder moduleId={16} />} />
