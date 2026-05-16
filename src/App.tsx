@@ -9,6 +9,7 @@ import { HeadingConflicts } from './modules/HeadingConflicts'
 import { LearningRules } from './modules/LearningRules'
 import { MatchingFigure } from './modules/MatchingFigure'
 import { MemorizeInstruments } from './modules/MemorizeInstruments'
+import { MemorizePictograms } from './modules/MemorizePictograms'
 import './index.css'
 
 export default function App() {
@@ -26,7 +27,7 @@ export default function App() {
         <Route path="/modules/learning-rules" element={<LearningRules />} />
         <Route path="/modules/matching-figure" element={<MatchingFigure />} />
         <Route path="/modules/memorize-instruments" element={<MemorizeInstruments />} />
-        <Route path="/modules/memorize-pictograms" element={<Placeholder moduleId={9} />} />
+        <Route path="/modules/memorize-pictograms" element={<MemorizePictograms />} />
         <Route path="/modules/multi-attention" element={<Placeholder moduleId={10} />} />
         <Route path="/modules/planning-ability" element={<Placeholder moduleId={11} />} />
         <Route path="/modules/spot-the-side" element={<Placeholder moduleId={12} />} />
