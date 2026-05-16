@@ -11,6 +11,7 @@ import { MatchingFigure } from './modules/MatchingFigure'
 import { MemorizeInstruments } from './modules/MemorizeInstruments'
 import { MemorizePictograms } from './modules/MemorizePictograms'
 import { MultiAttention } from './modules/MultiAttention'
+import { PlanningAbility } from './modules/PlanningAbility'
 import './index.css'
 
 export default function App() {
@@ -30,7 +31,7 @@ export default function App() {
         <Route path="/modules/memorize-instruments" element={<MemorizeInstruments />} />
         <Route path="/modules/memorize-pictograms" element={<MemorizePictograms />} />
         <Route path="/modules/multi-attention" element={<MultiAttention />} />
-        <Route path="/modules/planning-ability" element={<Placeholder moduleId={11} />} />
+        <Route path="/modules/planning-ability" element={<PlanningAbility />} />
         <Route path="/modules/spot-the-side" element={<Placeholder moduleId={12} />} />
         <Route path="/modules/vigilance" element={<Placeholder moduleId={13} />} />
         <Route path="/modules/dart" element={<Placeholder moduleId={14} />} />
