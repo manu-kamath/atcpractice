@@ -10,6 +10,7 @@ import { LearningRules } from './modules/LearningRules'
 import { MatchingFigure } from './modules/MatchingFigure'
 import { MemorizeInstruments } from './modules/MemorizeInstruments'
 import { MemorizePictograms } from './modules/MemorizePictograms'
+import { MultiAttention } from './modules/MultiAttention'
 import './index.css'
 
 export default function App() {
@@ -28,7 +29,7 @@ export default function App() {
         <Route path="/modules/matching-figure" element={<MatchingFigure />} />
         <Route path="/modules/memorize-instruments" element={<MemorizeInstruments />} />
         <Route path="/modules/memorize-pictograms" element={<MemorizePictograms />} />
-        <Route path="/modules/multi-attention" element={<Placeholder moduleId={10} />} />
+        <Route path="/modules/multi-attention" element={<MultiAttention />} />
         <Route path="/modules/planning-ability" element={<Placeholder moduleId={11} />} />
         <Route path="/modules/spot-the-side" element={<Placeholder moduleId={12} />} />
         <Route path="/modules/vigilance" element={<Placeholder moduleId={13} />} />
