@@ -6,6 +6,7 @@ import { CoordinateSystem } from './modules/CoordinateSystem'
 import { CubeFolding } from './modules/CubeFolding'
 import { DividedAttention } from './modules/DividedAttention'
 import { HeadingConflicts } from './modules/HeadingConflicts'
+import { LearningRules } from './modules/LearningRules'
 import './index.css'
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
         <Route path="/modules/cube-folding" element={<CubeFolding />} />
         <Route path="/modules/divided-attention" element={<DividedAttention />} />
         <Route path="/modules/heading-conflicts" element={<HeadingConflicts />} />
-        <Route path="/modules/learning-rules" element={<Placeholder moduleId={6} />} />
+        <Route path="/modules/learning-rules" element={<LearningRules />} />
         <Route path="/modules/matching-figure" element={<Placeholder moduleId={7} />} />
         <Route path="/modules/memorize-instruments" element={<Placeholder moduleId={8} />} />
         <Route path="/modules/memorize-pictograms" element={<Placeholder moduleId={9} />} />
