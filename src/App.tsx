@@ -7,6 +7,7 @@ import { CubeFolding } from './modules/CubeFolding'
 import { DividedAttention } from './modules/DividedAttention'
 import { HeadingConflicts } from './modules/HeadingConflicts'
 import { LearningRules } from './modules/LearningRules'
+import { MatchingFigure } from './modules/MatchingFigure'
 import './index.css'
 
 export default function App() {
@@ -22,7 +23,7 @@ export default function App() {
         <Route path="/modules/divided-attention" element={<DividedAttention />} />
         <Route path="/modules/heading-conflicts" element={<HeadingConflicts />} />
         <Route path="/modules/learning-rules" element={<LearningRules />} />
-        <Route path="/modules/matching-figure" element={<Placeholder moduleId={7} />} />
+        <Route path="/modules/matching-figure" element={<MatchingFigure />} />
         <Route path="/modules/memorize-instruments" element={<Placeholder moduleId={8} />} />
         <Route path="/modules/memorize-pictograms" element={<Placeholder moduleId={9} />} />
         <Route path="/modules/multi-attention" element={<Placeholder moduleId={10} />} />
