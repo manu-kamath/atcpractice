@@ -3,6 +3,7 @@ import { Home } from './pages/Home'
 import { Placeholder } from './pages/Placeholder'
 import { BigNumbers } from './modules/BigNumbers'
 import { CoordinateSystem } from './modules/CoordinateSystem'
+import { CubeFolding } from './modules/CubeFolding'
 import './index.css'
 
 export default function App() {
@@ -14,7 +15,7 @@ export default function App() {
         {/* Module routes */}
         <Route path="/modules/big-numbers" element={<BigNumbers />} />
         <Route path="/modules/coordinate-system" element={<CoordinateSystem />} />
-        <Route path="/modules/cube-folding" element={<Placeholder moduleId={3} />} />
+        <Route path="/modules/cube-folding" element={<CubeFolding />} />
         <Route path="/modules/divided-attention" element={<Placeholder moduleId={4} />} />
         <Route path="/modules/heading-conflicts" element={<Placeholder moduleId={5} />} />
         <Route path="/modules/learning-rules" element={<Placeholder moduleId={6} />} />
