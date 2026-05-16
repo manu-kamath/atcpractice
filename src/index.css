@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Exo+2:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-radar-bg: #050d1a;
+  --color-radar-panel: #0a1628;
+  --color-radar-border: #0e2040;
+  --color-cyan: #00d4ff;
+  --color-green: #00ff9f;
+  --color-amber: #ffb800;
+  --color-danger: #ff3b5c;
+  --color-muted: #3a5068;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-ui: 'Exo 2', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #050d1a;
+  color: #c8dff0;
+  font-family: 'Exo 2', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+@keyframes radar-sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 4px rgba(0, 212, 255, 0.4); }
+  50% { box-shadow: 0 0 16px rgba(0, 212, 255, 0.8); }
+}
+
+.font-mono { font-family: 'Share Tech Mono', monospace !important; }
+.font-ui { font-family: 'Exo 2', sans-serif !important; }
+
+.radar-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glow-cyan { text-shadow: 0 0 8px rgba(0, 212, 255, 0.8); }
+.glow-green { text-shadow: 0 0 8px rgba(0, 255, 159, 0.8); }
+
+.border-glow-cyan {
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.25), inset 0 0 12px rgba(0, 212, 255, 0.04);
+}
+.border-glow-green {
+  box-shadow: 0 0 12px rgba(0, 255, 159, 0.25), inset 0 0 12px rgba(0, 255, 159, 0.04);
+}
+
+.animate-blink { animation: blink 1.2s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
