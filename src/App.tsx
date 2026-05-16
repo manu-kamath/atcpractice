@@ -8,6 +8,7 @@ import { DividedAttention } from './modules/DividedAttention'
 import { HeadingConflicts } from './modules/HeadingConflicts'
 import { LearningRules } from './modules/LearningRules'
 import { MatchingFigure } from './modules/MatchingFigure'
+import { MemorizeInstruments } from './modules/MemorizeInstruments'
 import './index.css'
 
 export default function App() {
@@ -24,7 +25,7 @@ export default function App() {
         <Route path="/modules/heading-conflicts" element={<HeadingConflicts />} />
         <Route path="/modules/learning-rules" element={<LearningRules />} />
         <Route path="/modules/matching-figure" element={<MatchingFigure />} />
-        <Route path="/modules/memorize-instruments" element={<Placeholder moduleId={8} />} />
+        <Route path="/modules/memorize-instruments" element={<MemorizeInstruments />} />
         <Route path="/modules/memorize-pictograms" element={<Placeholder moduleId={9} />} />
         <Route path="/modules/multi-attention" element={<Placeholder moduleId={10} />} />
         <Route path="/modules/planning-ability" element={<Placeholder moduleId={11} />} />
