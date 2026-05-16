@@ -1,8 +1,8 @@
-# FEAST ATCO Practice
+# ATCO Trainer
 
-Simulated aptitude test modules for Nav Canada FEAST Stage I & II air traffic controller selection.
+Unofficial practice modules for ATC aptitude test preparation (Stage I & II cognitive and simulation modules).
 
-> **Disclaimer:** For preparation use only. Not affiliated with Nav Canada.
+> **Disclaimer:** Unofficial practice tool — not affiliated with EUROCONTROL, SkyTest, or Nav Canada.
 
 ## Tech Stack
 
@@ -40,7 +40,7 @@ The `vercel.json` rewrites all routes to `index.html` for SPA routing.
 
 ## Modules
 
-### FEAST Stage I
+### Stage I
 1. Big Numbers Comprehension
 2. Coordinate System
 3. Cube Folding
@@ -55,7 +55,7 @@ The `vercel.json` rewrites all routes to `index.html` for SPA routing.
 12. Spot the Side
 13. Vigilance Test
 
-### FEAST Stage II
+### Stage II
 14. Dynamic Radar Test (DART)
 15. Multi Control Test
 16. Radar Control Test

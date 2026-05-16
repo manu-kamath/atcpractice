@@ -7,7 +7,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Big Numbers Comprehension',
     description: 'Identify the largest or smallest number from four 7–9 digit values.',
     icon: '🔢',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/big-numbers',
   },
   {
@@ -16,7 +16,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Coordinate System',
     description: 'Select the correct (x, y) coordinate for a marked point on an animated grid.',
     icon: '📍',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/coordinate-system',
   },
   {
@@ -25,7 +25,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Cube Folding',
     description: 'Choose which 3D cube can be folded from the given flat net.',
     icon: '🎲',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/cube-folding',
   },
   {
@@ -34,7 +34,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Divided Attention',
     description: 'Monitor three data streams and click the one showing an outlier value.',
     icon: '📊',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/divided-attention',
   },
   {
@@ -43,7 +43,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Heading Conflicts',
     description: 'Identify which aircraft pair is on a converging course on the radar scope.',
     icon: '✈️',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/heading-conflicts',
   },
   {
@@ -52,7 +52,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Learning and Applying Rules',
     description: 'Apply conditional rules to determine the correct action for each scenario.',
     icon: '📋',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/learning-rules',
   },
   {
@@ -61,7 +61,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Matching Figure Test',
     description: 'Find the option that matches the reference shape (rotated, not mirrored).',
     icon: '🔷',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/matching-figure',
   },
   {
@@ -70,7 +70,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Memorize Instruments',
     description: 'Study the instrument panel, then answer questions from memory.',
     icon: '🎛️',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/memorize-instruments',
   },
   {
@@ -79,7 +79,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Memorize Pictograms',
     description: 'Recall the sequence of aviation symbols in the correct order.',
     icon: '🛑',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/memorize-pictograms',
   },
   {
@@ -88,7 +88,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Multi Attention Test',
     description: 'Handle four simultaneous tasks: counter, shape, number sequence, and blink alert.',
     icon: '🧠',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/multi-attention',
   },
   {
@@ -97,7 +97,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Planning Ability Test',
     description: 'Pick the valid waypoint sequence that satisfies all given constraints.',
     icon: '🗺️',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/planning-ability',
   },
   {
@@ -106,7 +106,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Spot the Side',
     description: 'Identify whether the aircraft silhouette is viewed from the left or right.',
     icon: '👁️',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/spot-the-side',
   },
   {
@@ -115,7 +115,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Vigilance Test',
     description: 'Press SPACE when you spot the target character in a rapid stream.',
     icon: '⚡',
-    stage: 'FEAST I',
+    stage: 'Stage I',
     path: '/modules/vigilance',
   },
   {
@@ -124,7 +124,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Dynamic Radar Test (DART)',
     description: 'Identify conflicting aircraft pairs on a live animated radar scope.',
     icon: '📡',
-    stage: 'FEAST II',
+    stage: 'Stage II',
     path: '/modules/dart',
   },
   {
@@ -133,7 +133,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Multi Control Test',
     description: 'Simultaneously manage a radar scope and update the strip board.',
     icon: '🖥️',
-    stage: 'FEAST II',
+    stage: 'Stage II',
     path: '/modules/multi-control',
   },
   {
@@ -142,7 +142,7 @@ export const MODULES: ModuleMeta[] = [
     name: 'Radar Control Test',
     description: 'Issue the correct instruction to resolve conflicts on a live radar.',
     icon: '🎯',
-    stage: 'FEAST II',
+    stage: 'Stage II',
     path: '/modules/radar-control',
   },
   {
@@ -151,10 +151,10 @@ export const MODULES: ModuleMeta[] = [
     name: 'Strip Display Management',
     description: 'Update flight progress strips as events occur on the board.',
     icon: '📄',
-    stage: 'FEAST II',
+    stage: 'Stage II',
     path: '/modules/strip-display',
   },
 ]
 
-export const FEAST_I = MODULES.filter((m) => m.stage === 'FEAST I')
-export const FEAST_II = MODULES.filter((m) => m.stage === 'FEAST II')
+export const STAGE_I = MODULES.filter((m) => m.stage === 'Stage I')
+export const STAGE_II = MODULES.filter((m) => m.stage === 'Stage II')

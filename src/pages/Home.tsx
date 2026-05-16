@@ -1,11 +1,11 @@
 import { Header } from '../components/Header'
 import { ModuleCard } from '../components/ModuleCard'
-import { FEAST_I, FEAST_II } from '../modules/config'
+import { STAGE_I, STAGE_II } from '../modules/config'
 
 function StageSection({ title, subtitle, modules, accent }: {
   title: string
   subtitle: string
-  modules: typeof FEAST_I
+  modules: typeof STAGE_I
   accent: string
 }) {
   return (
@@ -37,32 +37,32 @@ export function Home() {
             AIR TRAFFIC CONTROLLER APTITUDE TEST PREPARATION
           </div>
           <h1 className="font-ui text-4xl font-bold text-[#c8dff0] mb-3">
-            FEAST<span className="text-[#00d4ff]"> PRACTICE</span>
+            ATCO<span className="text-[#00d4ff]"> TRAINER</span>
           </h1>
           <p className="font-ui text-sm text-[#3a5068] max-w-xl mx-auto">
-            Simulated aptitude modules for Nav Canada FEAST Stage I & II selection.
+            Unofficial practice modules for ATC aptitude test preparation — Stage I &amp; II.
             Each session is 8 questions with real-time feedback and personal best tracking.
           </p>
         </div>
 
         {/* Modules */}
         <StageSection
-          title="FEAST STAGE I"
+          title="STAGE I"
           subtitle="COGNITIVE & PERCEPTUAL"
-          modules={FEAST_I}
+          modules={STAGE_I}
           accent="#00d4ff"
         />
         <StageSection
-          title="FEAST STAGE II"
+          title="STAGE II"
           subtitle="ATC SIMULATION"
-          modules={FEAST_II}
+          modules={STAGE_II}
           accent="#00ff9f"
         />
 
         {/* Footer */}
         <footer className="text-center py-6 border-t border-[#0e2040]">
           <p className="font-mono text-xs text-[#3a5068]">
-            FEAST ATCO PRACTICE — FOR PREPARATION USE ONLY — NOT AFFILIATED WITH NAV CANADA
+            Unofficial practice tool — not affiliated with EUROCONTROL, SkyTest, or Nav Canada
           </p>
         </footer>
       </main>

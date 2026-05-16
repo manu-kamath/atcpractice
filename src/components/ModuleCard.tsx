@@ -11,7 +11,7 @@ interface Props {
 export function ModuleCard({ module, index }: Props) {
   const navigate = useNavigate()
   const score = useStore((s) => s.getModuleScore(module.id))
-  const isII = module.stage === 'FEAST II'
+  const isII = module.stage === 'Stage II'
   const accentColor = isII ? '#00ff9f' : '#00d4ff'
 
   return (

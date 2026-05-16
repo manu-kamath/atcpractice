@@ -10,7 +10,7 @@ export function Header() {
         <div className="w-2 h-2 rounded-full bg-[#00ff9f] animate-pulse" />
         <span className="font-mono text-xs text-[#3a5068] tracking-widest">NAV CANADA</span>
         <span className="font-mono text-xs text-[#0e2040]">|</span>
-        <span className="font-ui text-sm font-semibold text-[#00d4ff] glow-cyan">FEAST ATCO PRACTICE</span>
+        <span className="font-ui text-sm font-semibold text-[#00d4ff] glow-cyan">ATCO TRAINER</span>
       </div>
 
       <div className="flex items-center gap-6">

@@ -5,7 +5,7 @@ export function Placeholder({ moduleId }: { moduleId: number }) {
   const navigate = useNavigate()
   const mod = MODULES.find((m) => m.id === moduleId)
   if (!mod) return null
-  const accentColor = mod.stage === 'FEAST II' ? '#00ff9f' : '#00d4ff'
+  const accentColor = mod.stage === 'Stage II' ? '#00ff9f' : '#00d4ff'
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center radar-grid gap-6 p-8">

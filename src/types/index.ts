@@ -1,4 +1,4 @@
-export type Stage = 'FEAST I' | 'FEAST II'
+export type Stage = 'Stage I' | 'Stage II'
 
 export interface ModuleMeta {
   id: number
