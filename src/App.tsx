@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home'
-import { Placeholder } from './pages/Placeholder'
 import { BigNumbers } from './modules/BigNumbers'
 import { CoordinateSystem } from './modules/CoordinateSystem'
 import { CubeFolding } from './modules/CubeFolding'
@@ -17,6 +16,7 @@ import { Vigilance } from './modules/Vigilance'
 import { Dart } from './modules/Dart'
 import { MultiControl } from './modules/MultiControl'
 import { RadarControl } from './modules/RadarControl'
+import { StripDisplay } from './modules/StripDisplay'
 import './index.css'
 
 export default function App() {
@@ -42,7 +42,7 @@ export default function App() {
         <Route path="/modules/dart" element={<Dart />} />
         <Route path="/modules/multi-control" element={<MultiControl />} />
         <Route path="/modules/radar-control" element={<RadarControl />} />
-        <Route path="/modules/strip-display" element={<Placeholder moduleId={17} />} />
+        <Route path="/modules/strip-display" element={<StripDisplay />} />
       </Routes>
     </BrowserRouter>
   )
